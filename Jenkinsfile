@@ -2,12 +2,12 @@ node {
  
    stage('code checkout') { 
        
-       git credentialsId: 'githubID', url: 'https://github.com/creativetech123/maven_apps.git'
+       git credentialsId: 'githubid', url: 'https://github.com/creativetech123/maven_apps.git'
        
    }
    
    stage('Build') {
-       withMaven(jdk: 'JDK', maven: 'maven') {
+       withMaven(jdk: 'java1.8', maven: 'maven') {
     sh 'mvn clean compile'
 }
      
@@ -15,19 +15,19 @@ node {
    }
    
    stage('unit test') {
-       withMaven(jdk: 'JDK', maven: 'maven') {
+       withMaven(jdk: 'java1.8', maven: 'maven') {
     sh 'mvn test' 
 }
       
    }
  stage('sonar test') {
-       withMaven(jdk: 'JDK', maven: 'maven') {
+       withMaven(jdk: 'java1.8', maven: 'maven') {
     sh 'mvn clean compile sonar:sonar -Dsonar.projectKey=maven-project -Dsonar.organization=creativetech123 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=e130fab062012d5160ab51a8ee03561c457e0268' 
  }
   
      }
    stage('package') {
-       withMaven(jdk: 'JDK', maven: 'maven') {
+       withMaven(jdk: 'java1.8', maven: 'maven') {
     sh 'mvn package'
 }
       
