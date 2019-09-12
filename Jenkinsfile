@@ -1,8 +1,5 @@
-node { 
-   stage('java jobs')
-         {
-         }
- 
+node('jenkins-slave') { 
+   
    stage('code checkout') { 
        
        git credentialsId: 'githubid', url: 'https://github.com/creativetech123/maven_apps.git'
