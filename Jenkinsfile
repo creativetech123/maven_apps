@@ -1,5 +1,5 @@
 node { 
-   stage('jenkins-slave')
+   stage('java jobs')
          {
          }
  
