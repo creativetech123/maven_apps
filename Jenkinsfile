@@ -1,4 +1,7 @@
-node {
+node { 
+   stage('jenkins-slave)
+         {
+         }
  
    stage('code checkout') { 
        
